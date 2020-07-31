@@ -6,20 +6,20 @@ function getElementFromString(string) {
     return div.firstElementChild;
 }
 
-let addedParamCount = 0;
+let checkVariable = 0;
 
 
 let parametersBox = document.getElementById('parametersBox');
 parametersBox.style.display = 'none';
 
-let paramsRadio = document.getElementById('paramsRadio');
-paramsRadio.addEventListener('click', () => {
+let paramsOption = document.getElementById('paramsContent');
+paramsOption.addEventListener('click', () => {
     document.getElementById('requestJsonBox').style.display = 'none';
     document.getElementById('parametersBox').style.display = 'block';
 })
 
-let jsonRadio = document.getElementById('jsonRadio');
-jsonRadio.addEventListener('click', () => {
+let jsonOption = document.getElementById('jsonContent');
+jsonOption.addEventListener('click', () => {
     document.getElementById('requestJsonBox').style.display = 'block';
     document.getElementById('parametersBox').style.display = 'none';
 })
@@ -29,29 +29,29 @@ let addParam = document.getElementById('addParam');
 addParam.addEventListener('click', () => {
     let params = document.getElementById('params');
     let string =   `<div>
-                    <label for="url">Parameter ${addedParamCount + 2}</label>
-                    <input type="text" id="parameterKey${addedParamCount + 2}" placeholder="Parameter ${addedParamCount + 2} Key">
-                    <input type="text" id="parameterValue${addedParamCount + 2}" placeholder="Parameter ${addedParamCount + 2} Value">
+                    <label for="url">Parameter ${checkVariable + 2}</label>
+                    <input type="text" id="parameterKey${checkVariable + 2}" placeholder="Parameter ${checkVariable + 2} Key">
+                    <input type="text" id="parameterValue${checkVariable + 2}" placeholder="Parameter ${checkVariable + 2} Value">
                     <button class="btn btn-primary deleteParam"> - </button>
                     </div>`;
-    // Convert the element string to DOM node
+    
     let paramElement = getElementFromString(string);
     params.appendChild(paramElement);
-    // Add an event listener to remove the parameter on clicking - button
+   
     let deleteParam = document.getElementsByClassName('deleteParam');
     for (item of deleteParam) {
         item.addEventListener('click', (e) => {
-            // TODO: add a confirmation box to confirm parameter deletion
+            
             e.target.parentElement.remove();
         })
     }
-    addedParamCount++;
+    checkVariable++;
 })
 
 let submit = document.getElementById('submit');
 submit.addEventListener('click', () => {
 
-    document.getElementById('responsePrism').innerHTML = "Please wait.. Fetching response...";
+    document.getElementById('responsePrism').innerHTML = "Fetching response...";
 
     let url = document.getElementById("url").value;
     let requestType = document.querySelector("#requestType").value;
@@ -59,7 +59,7 @@ submit.addEventListener('click', () => {
  
     if (contentType == 'params') {
         data = {};
-        for (let i = 0; i < addedParamCount + 1; i++) {
+        for (let i = 0; i < checkVariable + 1; i++) {
             if (document.getElementById('parameterKey' + (i + 1)) != undefined) {
                 let key = document.getElementById('parameterKey' + (i + 1)).value;
                 let value = document.getElementById('parameterValue' + (i + 1)).value;
