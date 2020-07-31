@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body bgcolor="#ebe5e4">
+
+<h2 align="center">🚀 Mini-Postman</h2>
+
+<div>
+ 
+    <label for="url"><b>URL</b></label>
+    <input type="text" id="url" ><br><br>
+
+    <label for="type"><b>REQUEST</b></label>
+    <select id="requestType">
+      <option id="get" value="GET">GET</option>
+      <option id="post" value="POST">POST</option>
+    </select><br><br>
+    
+    <label for="type"><b>DATA</b></label><br><br>
+
+    <input type="radio" name="contentType" id="jsonRadio" value="json" checked> JSON
+    <input type="radio" name="contentType" id="paramsRadio" value="params"> CUSTOM   
+    
+  
+     <div id="parametersBox">
+          <label for="url">Parameter 1</label>
+          <input type="text" id="parameterKey1" placeholder="Parameter 1 Key">
+          <input type="text" id="parameterValue1" placeholder="Parameter 1 Value">
+          <button id="addParam" class="btn btn-primary">+</button>
+      </div><div id="params"></div>
+
+  <div id="requestJsonBox">
+      <label for="requestJsonText">JSON</label>
+      <textarea class="textarea" id="requestJsonText" rows="3"></textarea>
+  </div>  
+
+  <label for="responseJsonText"><b>RESPONSE</b></label><br>
+   
+  <pre id='responsePre' class="language-javascript"> <code id='responsePrism' class="language-javascript"> Your response will appear here </code> </pre>
+  
+  <br><br>
+  
+    <button id="submit">SEND</button>
+ 
+</div>
+<script src="index.js"></script> 
+</body>
+</html>
