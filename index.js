@@ -76,7 +76,7 @@ submit.addEventListener('click', () => {
     
     if (requestType=='GET'){
         fetch(url, {
-            method: 'GET',   
+            method: 'GET'  
         })
         .then(response=> response.text())
         .then((text) =>{
