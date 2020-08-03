@@ -34,16 +34,16 @@
 
   <div id="requestJsonBox">
       <label for="requestJsonText">JSON</label>
-      <textarea class="textarea" id="requestJsonText" rows="3"></textarea>
+      <textarea class="textJSON" id="requestJsonText" rows="3"></textarea>
   </div>  
 
-  <label for="responseJsonText"><b>RESPONSE</b></label><br>
+  <label for="responseJsonText"><b>RESPONSE</b></label><br><br>
    
-  <pre id='responsePre' class="language-javascript"> <code id='responsePrism' class="language-javascript"> Your response will appear here </code> </pre>
-  
+  <button onClick="copy()">Copy</button>
+  <textarea id='JSONresponse' class="textarea"></textarea>
   <br><br>
   
-    <button id="submit">SEND</button>
+  <button id="submit">SEND</button>
  
 </div>
 <script src="index.js"></script> 

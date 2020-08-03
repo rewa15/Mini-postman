@@ -1,4 +1,4 @@
-console.log('This is my project');
+console.log('Welcome to Postman clone');
 
 function getElementFromString(string) {
     let div = document.createElement('div');
@@ -51,7 +51,7 @@ addParam.addEventListener('click', () => {
 let submit = document.getElementById('submit');
 submit.addEventListener('click', () => {
 
-    document.getElementById('responsePrism').innerHTML = "Fetching response...";
+    document.getElementById('JSONresponse').innerHTML = "Fetching response...";
 
     let url = document.getElementById("url").value;
     let requestType = document.querySelector("#requestType").value;
@@ -81,8 +81,8 @@ submit.addEventListener('click', () => {
         .then(response=> response.text())
         .then((text) =>{
             
-            document.getElementById('responsePrism').innerHTML = text;
-            Prism.highlightAll();
+            document.getElementById('JSONresponse').value = text;
+            
         });
     }
 
@@ -97,11 +97,16 @@ submit.addEventListener('click', () => {
         .then(response=> response.text())
         .then((text) =>{
              
-            document.getElementById('responsePrism').innerHTML = text;
-            Prism.highlightAll();
+            document.getElementById('JSONresponse').value = text;
+           
         });
 
     }
 
 });
 
+function copy() {
+    let textarea = document.getElementById("JSONresponse");
+    textarea.select();
+    document.execCommand("copy");
+  }
